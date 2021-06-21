@@ -1,0 +1,119 @@
+{
+    "code": 0,
+    "msg": "success",
+    "data": {
+        "total": 0,
+        "page": 1,
+        "list": [
+            {
+                "id": 1,
+                "title": "三年8班（新手推荐）",
+                "count": 5,
+                "level": 0,
+                "type": [
+                    0
+                ],
+                "img": "../123.jpeg",
+                "introduction": "这是一个和谐的班级，然而...",
+                "status": 0
+            },
+            {
+                "id": 2,
+                "title": "老墙根胡同轶闻",
+                "count": 6,
+                "level": 1,
+                "type": [
+                    1,
+                    2
+                ],
+                "img": "../123.jpeg",
+                "introduction": "充满故事的胡同...",
+                "status": 0
+            },
+            {
+                "id": 3,
+                "title": "琉璃厂小学密室杀人事件（新手推荐）",
+                "count": 7,
+                "level": 2,
+                "type": [
+                    0,
+                    1
+                ],
+                "img": "../123.jpeg",
+                "introduction": "文化街里的凶杀现场...",
+                "status": 0
+            },
+            {
+                "id": 4,
+                "title": "虎坊路迷案（新手推荐）",
+                "count": 5,
+                "level": 0,
+                "type": [
+                    0
+                ],
+                "img": "../123.jpeg",
+                "introduction": "南城名场面...",
+                "status": 0
+            },
+            {
+                "id": 5,
+                "title": "两广路飙车意外",
+                "count": 6,
+                "level": 1,
+                "type": [
+                    1,
+                    2
+                ],
+                "img": "../123.jpeg",
+                "status": 0
+            },
+            {
+                "id": 6,
+                "title": "琉璃厂小学密室杀人事件（新手推荐）",
+                "count": 7,
+                "level": 2,
+                "type": [
+                    0,
+                    1
+                ],
+                "img": "../123.jpeg",
+                "status": 0
+            },
+            {
+                "id": 7,
+                "title": "三年8班（新手推荐）",
+                "count": 5,
+                "level": 0,
+                "type": [
+                    0
+                ],
+                "img": "../123.jpeg",
+                "status": 0
+            },
+            {
+                "id": 8,
+                "title": "老墙根胡同轶闻",
+                "count": 6,
+                "level": 1,
+                "type": [
+                    1,
+                    2
+                ],
+                "img": "../123.jpeg",
+                "status": 0
+            },
+            {
+                "id": 9,
+                "title": "琉璃厂小学密室杀人事件（新手推荐）",
+                "count": 7,
+                "level": 2,
+                "type": [
+                    0,
+                    1
+                ],
+                "img": "../123.jpeg",
+                "status": 0
+            }
+        ]
+    }
+}
