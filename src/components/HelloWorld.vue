@@ -1,6 +1,10 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <div style="display: none">
+      <img src="../assets/img/logo.jpeg" alt="">
+    </div>
+    <img alt="Vue logo" src="../assets/img/banner.jpeg">
+    <!-- <h1>{{ msg }}</h1> -->
   </div>
 </template>
 
@@ -17,7 +21,13 @@ export default {
 <style scoped lang="less">
 .hello{
   text-align: center;
-  background-color: red;
+  // background-color: red;
+  padding-bottom: .5rem;
+
+  img{
+    width: 100%;
+  }
+
   h1 {
     font-size: 3rem;
     color: #fff;

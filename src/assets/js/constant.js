@@ -1,10 +1,11 @@
 export default {
   condition: [{
     title: '人数',
-    attr: 'count',
+    attr: 'personCount',
+    multi: false,
     data: [{
       key: '全部',
-      val: '',
+      val: 0,
       active: true,
     }, {
       key: '2人',
@@ -27,112 +28,135 @@ export default {
       val: 6,
       active: false,
     }, {
-      key: '7人以上',
+      key: '7人',
       val: 7,
       active: false,
-    }],
-  }, {
-    title: '时长',
-    attr: 'duration',
-    data: [{
-      key: '全部',
-      val: '',
-      active: true,
     }, {
-      key: '1小时以下',
-      val: 0,
+      key: '8人',
+      val: 8,
       active: false,
     }, {
-      key: '1-2小时',
+      key: '9人',
+      val: 9,
+      active: false,
+    }, {
+      key: '10人',
+      val: 10,
+      active: false,
+    }, {
+      key: '10人以上',
+      val: 11,
+      active: false
+    }],
+  }, {
+    title: '背景',
+    attr: 'background',
+    multi: false,
+    data: [{
+      key: '全部',
+      val: 0,
+      active: true,
+    }, {
+      key: '古风',
       val: 1,
       active: false,
     }, {
-      key: '2-3小时',
+      key: '民国',
       val: 2,
       active: false,
     }, {
-      key: '3-4小时',
+      key: '现代',
       val: 3,
       active: false,
     }, {
-      key: '4-5小时',
+      key: '科幻',
       val: 4,
       active: false,
     }, {
-      key: '5小时以上',
+      key: '欧式',
       val: 5,
+      active: false,
+    }, {
+      key: '日式',
+      val: 6,
       active: false,
     }],
   }, {
     title: '题材',
-    attr: 'type',
+    attr: 'theme',
+    multi: false,
     data: [{
       key: '全部',
-      val: '',
+      val: 0,
       active: true,
     }, {
-      key: '现实',
+      key: '恐怖',
       val: 1,
       active: false,
     }, {
-      key: '武侠',
+      key: '情感',
       val: 2,
       active: false,
     }, {
-      key: '玄幻',
+      key: '推理',
       val: 3,
       active: false,
     }, {
-      key: '灵异',
+      key: '欢乐',
       val: 4,
       active: false,
-    }],
-  }, {
-    title: '类型',
-    attr: 'type',
-    data: [{
-      key: '全部',
-      val: '',
-      active: true,
     }, {
-      key: '本格',
-      val: 0,
+      key: '阵营',
+      val: 5,
       active: false,
     }, {
-      key: '变格',
-      val: 1,
+      key: '机制',
+      val: 6,
       active: false,
+    }, {
+      key: '谍战',
+      val: 7,
+      active: false,
+    }, {
+      key: '武侠',
+      val: 8,
+      active: false,
+    }, {
+      key: '玄幻',
+      val: 9,
+      active: false,
+    }, {
+      key: '校园',
+      val: 10,
+      active: false,
+    }, {
+      key: '立意',
+      val: 11,
+      active: false,
+    }, {
+      key: '其他',
+      val: 12,
+      active: false
     }],
   }, {
     title: '难度',
     attr: 'level',
+    multi: false,
     data: [{
       key: '全部',
-      val: '',
+      val: 0,
       active: true,
     }, {
-      key: '简单',
-      val: 0,
-      active: false,
-    }, {
-      key: '中等',
+      key: '新手',
       val: 1,
       active: false,
     }, {
-      key: '困难',
+      key: '进阶',
       val: 2,
       active: false,
-    }],
-  }, {
-    title: '排序',
-    attr: 'order',
-    data: [{
-      key: '推荐',
-      val: 'recommend',
-      active: true,
     }, {
-      key: '最新上架',
-      val: 'latest',
+      key: '王者',
+      val: 3,
       active: false,
     }],
   }],
