@@ -23,11 +23,12 @@
         <el-upload
           class="upload-demo"
           action="/api/file/upload"
-          :on-preview="handlePreview"
           :on-remove="handleRemove" 
           :on-success="handleSuccess"
           :file-list="fileList"
-          list-type="picture">
+          :limit="1"
+          list-type="picture"
+          accept=".jpg,.jpeg,.png">
           <el-button size="small" type="primary">点击上传</el-button>
           <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
         </el-upload>
@@ -57,13 +58,11 @@
         </el-input>
       </el-col>
     </el-row>
-    
-
-    <el-row class="row" v-if="msg !== ''">
+    <!-- <el-row class="row" v-if="msg !== ''">
       <el-col :span="18" :offset="3">
         <div class="tip">{{ msg }}</div>
       </el-col>
-    </el-row>
+    </el-row> -->
 
     <el-row class="row">
       <el-col :span="18" :offset="3">
@@ -77,7 +76,7 @@
 import HelloWorld from '@/components/HelloWorld';
 import Constant from '@/assets/js/constant.js';
 import http from '@/assets/js/request.js';
-
+import { Message } from 'element-ui';
 export default {
   components: {
     HelloWorld
@@ -88,7 +87,7 @@ export default {
       condition,
       disabled: false,
       fileList: [],
-      msg: '',
+      // msg: '',
       is_online: true,
       formData: {
         id: '',
@@ -105,12 +104,23 @@ export default {
   },
   mounted() {
     let { id } = this.$route.query;
+    this.getLoginInfo();
     if(id) {
       this.formData.id = id;
       this.getData();
     }
   },
   methods: {
+    async getLoginInfo() {
+      try {
+        let res = await http.get('/user/status');
+        if(res.code === 1 || !res.data) {
+          this.$router.push({ path: '/' })
+        }
+      } catch(e) {
+        console.log(e);
+      }
+    }, 
     handleSuccess(res) {
       if(res.code === 0) {
         this.formData.coverImg = res.data;
@@ -121,6 +131,9 @@ export default {
       } else {
         console.log('文件上传失败');
       }
+    },
+    handleRemove() {
+      this.formData.coverImg = '';
     },
     async getData() {
       let { id } = this.formData;
@@ -171,11 +184,12 @@ export default {
       return '';
     },
     async submit() {
-      this.msg = this.validate();
-      if(this.msg !== ''){
-        return;
+      let message = this.validate();
+      if(message !== ''){
+        Message.warning({
+          message
+        });
       }
-
       let { formData, is_online } = this; 
       formData.status = is_online ? 0 : 1;
       try {
@@ -190,18 +204,14 @@ export default {
             path: '/'
           })
         } else {
-          console.log('接口异常')
+          Message.warning({
+            message: res.message
+          })
         }
       } catch(e) {
         console.log(e)
       }
     },
-    handlePreview() {
-
-    },
-    handleRemove() {
-
-    }
   }
 }
 </script>

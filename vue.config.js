@@ -5,17 +5,18 @@ module.exports = {
   lintOnSave: false,
   devServer: {
     port: 8089,
+    disableHostCheck: true,
     proxy: {
       '/api': {
-        target: 'http://192.168.3.20:8081/',
-        // target: 'http://itserver.top:8081/',
+        // target: 'http://192.168.3.20:8081/',
+        target: 'http://itserver.top/',
         ws: true,
         secure: false,
         //开启代理：在本地会创建一个虚拟服务端，然后发送请求的数据，并同时接收请求的数据，这样客户端端和服务端进行数据的交互就不会有跨域问题
         changOrigin: true,
-        pathRewrite: {
-          '^/api': ''
-        }
+        // pathRewrite: {
+        //   '^/api': ''
+        // }
       }
     }
   },

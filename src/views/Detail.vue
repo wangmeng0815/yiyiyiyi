@@ -23,18 +23,31 @@ export default {
   data() {
     return {
       id: '',
+      isLogin: false,
       content: ''
     };
   },
   mounted() {
     let { id } = this.$route.query;
     this.id = id;
+    this.getLoginInfo();
+    this.query();
   },
   methods: {
+    async getLoginInfo() {
+      try {
+        let res = await http.get('/user/status');
+        if(res.code === 0) {
+          this.isLogin = res.data;
+        } 
+      } catch(e) {
+        console.log(e);
+      }
+    }, 
     async query() {
       let { id } = this;
       try {
-        let res = await http.get(`/detail?id=${id}`);
+        let res = await http.get(`/article/detail?id=${id}`);
         if(res.code === 0) {
           this.content = res.data.content;
         } else {

@@ -14,7 +14,7 @@
         </div>
       </div>
 
-      <div class="btn_create">
+      <div class="btn_create" v-if="isLogin">
         <el-button size="mini" round @click="gotoEdit()">新增</el-button>
       </div>
     </div>
@@ -25,7 +25,7 @@
           <img :src="'../123.jpeg'" alt="img">
         </div>
         <div class="content">
-          <i class="btn el-icon-edit" @click.stop="gotoEdit(item)"></i>
+          <i class="btn el-icon-edit" @click.stop="gotoEdit(item)" v-if="isLogin"></i>
           <div class="title">
             {{ item.title }}
           </div>
@@ -36,14 +36,14 @@
               <!-- <div class="tag" v-for="it in item.theme" :key="it" >{{ it | themeFilter }}</div> -->
               <div class="tag" v-if="item.theme">{{ item.theme | themeFilter }}</div>
               <div class="tag" v-if="item.level">{{ item.level | levelFilter }}</div>
-              <div class="tag status" v-if="item.status === 1">已下线</div>
+              <div class="tag status" v-if="isLogin && item.status === 1">已下线</div>
             </div>
           </div>
           <div class="intro">{{ item.content }}</div>
         </div>
       </div>
       <div class="list_end">
-        <span></span>
+        <span>{{ loading ? '请稍后' : '已经到底了'}}</span>
       </div>
     </div>
 
@@ -53,6 +53,7 @@
 <script>
 import Constant from '@/assets/js/constant.js';
 import http from '@/assets/js/request';
+import { getCookie } from '@/assets/js/utils';
 // import axios from 'axios';
 
 const backMap = {
@@ -91,6 +92,7 @@ export default {
       pages: 0,
       size: 10,
       loading: false,
+      isLogin: false,
       queryForm: {
         personCount: 0,
         background: 0,
@@ -105,6 +107,7 @@ export default {
     levelFilter: (_input) => levelMap[_input],
   },
   mounted() {
+    this.getLoginInfo();
     this.query();
   },
   watch: {
@@ -126,9 +129,22 @@ export default {
       this.current++;
       this.query();
     }, 
+    async getLoginInfo() {
+      try {
+        let res = await http.get('/user/status');
+        if(res.code === 0) {
+          this.isLogin = res.data;
+        } else {
+          this.isLogin = false;
+        }
+      } catch(e) {
+        console.log(e);
+      }
+    }, 
     async query() {
       let { personCount, background, theme, level } = this.queryForm;
       let { current, size } = this;
+
       try {
         this.loading = true;
         let res = await http.get(`/article?current=${current}&size=${size}&personCount=${personCount}&background=${background}&theme=${theme}&level=${level}`);
@@ -318,6 +334,16 @@ export default {
         }
       }
     }
+
+    .list_end{
+      text-align: center;
+      margin: 1rem 0 .5rem;
+    }
+  }
+
+  .msg{
+    font-size: 1.4rem;
+    color: #000;
   }
 }
 
