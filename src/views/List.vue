@@ -108,6 +108,14 @@ export default {
   mounted() {
     this.getLoginInfo();
     this.query();
+
+    let { a } = this.$route.query;
+    console.log(a);
+    if(a === '1'){
+      this.$router.push({
+        path: '/login'
+      });
+    }
   },
   watch: {
     queryForm: {
