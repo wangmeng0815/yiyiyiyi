@@ -21,8 +21,7 @@
     <div class="list" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="10">
       <div class="item" v-for="item in listData" :key="item.id" @click="goto(item)">
         <div class="img">
-          <!-- <img :src="item.img" alt="img"> -->
-          <img :src="'../123.jpeg'" alt="img">
+          <img :src="item.coverImg" alt="img">
         </div>
         <div class="content">
           <i class="btn el-icon-edit" @click.stop="gotoEdit(item)" v-if="isLogin"></i>
