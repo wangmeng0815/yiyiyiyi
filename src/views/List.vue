@@ -167,12 +167,10 @@ export default {
         } else {
           console.log('列表接口异常');
         }
-        console.log(2);
         console.log(34);
       } catch(e) {
         console.log(e);
       } finally {
-        console.log(3);
         setTimeout(() => {
           //这里请求接口去拿数据，实际应该是调用一个请求数据的方法
           this.loading = false;
