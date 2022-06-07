@@ -151,7 +151,7 @@ export default {
     async query() {
       let { personCount, background, theme, level } = this.queryForm;
       let { current, size } = this;
-      console.log(123);
+      
       try {
         this.loading = true;
         let res = await http.get(`/article?current=${current}&size=${size}&personCount=${personCount}&background=${background}&theme=${theme}&level=${level}`);
@@ -167,7 +167,6 @@ export default {
         } else {
           console.log('列表接口异常');
         }
-        console.log(34);
       } catch(e) {
         console.log(e);
       } finally {
