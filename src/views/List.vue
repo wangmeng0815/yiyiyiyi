@@ -175,14 +175,6 @@ export default {
           this.loading = false;
         }, 1000);
       }
-
-      // let res = await axios.get('/json/note.json');
-      // res = res.data;
-      // if (res.code === 0) {
-      //   this.listData = res.data.list;
-      // } else {
-      //   console.log('error');
-      // }
     },
     goto(_item) {
       this.$router.push({
