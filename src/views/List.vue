@@ -168,6 +168,7 @@ export default {
           console.log('列表接口异常');
         }
         console.log(2);
+        console.log(34);
       } catch(e) {
         console.log(e);
       } finally {
