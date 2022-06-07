@@ -168,6 +168,7 @@ export default {
           console.log('列表接口异常');
         }
       } catch(e) {
+        console.log(123);
         console.log(e);
       } finally {
         setTimeout(() => {
